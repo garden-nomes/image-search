@@ -1,9 +1,9 @@
-const search = require('./search'),
-	latest = require('./latest');
+const express = require('express'),
+      search = require('./search'),
+      latest = require('./latest'),
+      router = express.Router();
 
-module.exports = (app) => {
-	app.use('/search/:term', search);
-	app.use('/latest', latest);
+router.use('/search/:term', search);
+router.use('/latest', latest);
 
-	return app;
-};
+module.exports = router;

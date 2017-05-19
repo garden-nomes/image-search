@@ -1,22 +1,31 @@
 const mongo = require('mongodb').MongoClient;
 
-const database = {
-  db: null,
-	connect(uri, callback) {
-		if (this.db) { return callback(null); }
+let db = null;
 
-		mongo.connect(uri, (err, db) => {
-			if (err) { return callback(err); }
-			this.db = db;
-		});
-	},
-	close(err, callback) {
-		if (!this.db) { return callback(); }
-		this.db.close((err) => {
-			this.db = null;
+const database = {
+  connect(uri, callback) {
+    if (db) { return callback(null); }
+
+    mongo.connect(uri, (err, db_) => {
+      if (err) { return callback(err); }
+
+      db = db_;
+      callback();
+    });
+  },
+
+  close(err, callback) {
+    if (!this.db) { return callback(); }
+
+    db.close((err) => {
+      db = null;
       callback(err);
-		});
-	}
+    });
+  },
+
+  get() {
+    return db;
+  }
 };
 
 module.exports = database;

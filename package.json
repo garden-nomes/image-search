@@ -5,8 +5,9 @@
   "author": "noaner",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
-    "googleapis": "^19.0.0",
-    "mongodb": "^2.2.26"
+    "mongodb": "^2.2.26",
+    "urijs": "^1.18.10"
   }
 }
