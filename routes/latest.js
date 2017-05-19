@@ -1,6 +1,6 @@
 const search = require('../models/search');
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
   search.latest((err, results) => {
     if (err) {
       next(err);

@@ -1,7 +1,7 @@
 const search = require('../models/search'),
   imageSearch = require('../lib/imageSearch');
 
-module.exports = (req, res) => {
+module.exports = (req, res, next) => {
   const { term } = req.params,
     offset = +req.query.offset || 1;
 
