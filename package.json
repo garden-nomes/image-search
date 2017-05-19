@@ -1,0 +1,12 @@
+{
+  "name": "image-search",
+  "version": "0.1",
+  "main": "server.js",
+  "author": "noaner",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.3",
+    "googleapis": "^19.0.0",
+    "mongodb": "^2.2.26"
+  }
+}
